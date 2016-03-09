@@ -10,8 +10,7 @@ var models = require('./models/contacts');
 
 var contacts = new models.ContactCollection();
 var contactView = new Contact({collection: contacts, el: $('#contacts')[0]});
-console.log(contactView);
-
+// console.log(contactView);
 
 $('#submit-btn').on ('click', function(){
   event.preventDefault();
@@ -22,6 +21,8 @@ $('#submit-btn').on ('click', function(){
   var linkedin = $('#linkedin').val();
   var contactInfo = {'name': name, 'email': email, 'number': number, 'twitter': twitter, 'linkedin': linkedin};
   console.log(contactInfo);
+  contacts.input(contactInfo);
+  console.log("this is contacts log",contacts);
 });
 
 },{"./models/contacts":2,"./views/contacts":3,"backbone":5,"handlebars":35,"jquery":47}],2:[function(require,module,exports){
@@ -32,6 +33,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 
 var Contact = Backbone.Model.extend({
+  
 });
 
 var ContactCollection = Backbone.Collection.extend({
@@ -72,7 +74,6 @@ var Contact = Backbone.View.extend({
   complete: function(){
   },
   render: function(){
-    console.log(this.$el);
     this.$el.empty().append(this.template);
     return this;
   }

@@ -20,4 +20,6 @@ $('#submit-btn').on ('click', function(){
   var linkedin = $('#linkedin').val();
   var contactInfo = {'name': name, 'email': email, 'number': number, 'twitter': twitter, 'linkedin': linkedin};
   console.log(contactInfo);
+  contacts.input(contactInfo);
+  console.log("this is contacts log",contacts);
 });

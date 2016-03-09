@@ -21,7 +21,6 @@ var Contact = Backbone.View.extend({
   complete: function(){
   },
   render: function(){
-    console.log(this.$el);
     this.$el.empty().append(this.template);
     return this;
   }

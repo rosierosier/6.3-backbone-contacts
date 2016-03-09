@@ -20,7 +20,11 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 
 var ContactCollection = Backbone.Collection.extend({
-  model: Contact
+  model: Contact,
+  input: function(data){
+    this.add({data});
+    return data;
+  }
 });
 
 module.exports = {
@@ -42,18 +46,18 @@ var contactSource = $('#contacts').html();
 var contactTemplate = handlebars.compile(contactSource);
 var Contact = Backbone.View.extend({
   tagName: "ul",
-  className: "container",
+  className: "contact-list",
   template: contactTemplate,
 
   events: {
   },
   initialize: function(){
-    // this.listenTo(this.collection, "add", this.render);
+    this.listenTo(this.collection, "add", this.render);
   },
   complete: function(){
   },
   render: function(){
-    // this.$el.html(this.template(this.collection.toJSON));
+    this.$el.html(this.template(this.collection.toJSON));
     return this;
   }
 });

@@ -4,7 +4,11 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 
 var ContactCollection = Backbone.Collection.extend({
-  model: Contact
+  model: Contact,
+  input: function(data){
+    this.add({data});
+    return data;
+  }
 });
 
 module.exports = {

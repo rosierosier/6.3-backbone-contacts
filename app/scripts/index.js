@@ -10,7 +10,8 @@ var contacts = new models.ContactCollection();
 var contactView = new Contact({collection: contacts, el: $('.contact-list')[0]});
 // console.log(contactView);
 
-$('#submit-btn').on ('click', function(){
+
+$('#submit-btn').on ('click', function(event){
   event.preventDefault();
   var name = $('#first').val() + $('#last').val();
   var email = $('#email').val();

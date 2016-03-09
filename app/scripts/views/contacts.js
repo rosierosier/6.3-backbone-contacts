@@ -19,13 +19,13 @@ var Contact = Backbone.View.extend({
   },
   complete: function(){
   },
-  render: function(model){
+
+  render: function(contact){
     console.log('rendering');
-    this.$el.empty().append(this.template(model.toJSON()));
+    this.$el.empty().append(this.template(contact.toJSON()));
     return this;
   }
 });
-
 
 
 module.exports = Contact;

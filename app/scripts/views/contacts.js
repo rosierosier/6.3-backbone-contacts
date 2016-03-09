@@ -6,12 +6,13 @@ var Backbone = require('backbone');
 var models = require('../models/contacts');
 
 
-var contactSource = $('#contacts').html();
+var contactSource = $('#address-book').html();
 var contactTemplate = handlebars.compile(contactSource);
 var Contact = Backbone.View.extend({
   tagName: "ul",
   className: "contact-list",
   template: contactTemplate,
+  el: '.contact-list',
   events: {
   },
   initialize: function(){
@@ -25,7 +26,7 @@ var Contact = Backbone.View.extend({
   }
 });
 
-var contact = new Contact;
+var contact = new Contact();
 contact.render();
 
 module.exports = Contact;

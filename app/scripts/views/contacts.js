@@ -12,7 +12,6 @@ var Contact = Backbone.View.extend({
   tagName: "ul",
   className: "contact-list",
   template: contactTemplate,
-
   events: {
   },
   initialize: function(){

@@ -12,6 +12,7 @@ console.log(contactView);
 
 
 $('#submit-btn').on ('click', function(){
+  event.preventDefault();
   var name = $('#first').val() + $('#last').val();
   var email = $('#email').val();
   var number = $('#number').val();

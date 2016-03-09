@@ -4,15 +4,15 @@ var $ = require('jquery');
 var handlebars = require('handlebars');
 var Backbone = require('backbone');
 var models = require('../models/contacts');
+var _ = require('underscore');
 
-
-var contactSource = $('#address-book').html();
-var contactTemplate = handlebars.compile(contactSource);
+// var contactSource = $('#address-book').html();
+// var contactTemplate = handlebars.compile(contactSource);
 var Contact = Backbone.View.extend({
+  el: '.contact-list',
   tagName: "ul",
   className: "contact-list",
-  template: contactTemplate,
-  el: '.contact-list',
+  template: _.template($('#address-book').html()),
   events: {
   },
   initialize: function(){
@@ -21,7 +21,8 @@ var Contact = Backbone.View.extend({
   complete: function(){
   },
   render: function(){
-    this.$el.html(this.template(this.collection.toJSON));
+    console.log(this.$el);
+    this.$el.empty().append(this.template);
     return this;
   }
 });

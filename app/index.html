@@ -8,10 +8,30 @@
   </head>
   <body>
 
-    <h1>Hello World!</h1>
-    <ul id="contacts" class="contacts"></ul>
+    <h1>Contacts</h1>
 
-    <script id="contact-list" type="text/x-handlebars-template">
+    <form>
+      First name<br>
+      <input type="text" name="firstname"><br>
+      Last name<br>
+      <input type="text" name="lastname"><br>
+      Email<br>
+      <input type="text" name="email address"><br>
+      Phone number<br>
+      <input type="text" name="phone number"><br>
+      Twitter username<br>
+      <input type="text" name="twitter username"><br>
+      Linked-in<br>
+      <input type="text" name="linkedin"><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <div class="container">
+    </div>
+
+    <!-- <ul id="contacts" class="contacts"></ul> -->
+
+    <!-- <script id="contact-list" type="text/x-handlebars-template">
       {{#each this}}
         <li>
           {{this.contact}}::
@@ -24,7 +44,7 @@
           </a>
         </li>
       {{/each}}
-    </script>
+    </script> -->
 
     <script src="js/bundle.js"></script>
   </body>

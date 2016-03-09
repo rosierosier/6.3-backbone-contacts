@@ -9,10 +9,9 @@ var _ = require('underscore');
 // var contactSource = $('#address-book').html();
 // var contactTemplate = handlebars.compile(contactSource);
 var Contact = Backbone.View.extend({
-  el: '.contact-list',
   tagName: "ul",
   className: "contact-list",
-  template: _.template($('#address-book').html()),
+  template: handlebars.compile($('#address-book').html()),
   events: {
   },
   initialize: function(){
@@ -20,13 +19,13 @@ var Contact = Backbone.View.extend({
   },
   complete: function(){
   },
-  render: function(){
-    this.$el.empty().append(this.template);
+  render: function(model){
+    console.log('rendering');
+    this.$el.empty().append(this.template(model.toJSON()));
     return this;
   }
 });
 
-var contact = new Contact();
-contact.render();
+
 
 module.exports = Contact;

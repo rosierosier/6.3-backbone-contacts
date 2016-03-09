@@ -7,7 +7,7 @@ var models = require('./models/contacts');
 
 
 var contacts = new models.ContactCollection();
-var contactView = new Contact({collection: contacts, el: $('#contacts')[0]});
+var contactView = new Contact({collection: contacts, el: $('.contact-list')[0]});
 // console.log(contactView);
 
 $('#submit-btn').on ('click', function(){

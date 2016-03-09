@@ -9,11 +9,11 @@ var models = require('./models/contacts');
 
 
 var contacts = new models.ContactCollection();
-var contactView = new Contact({collection: contacts, el: $('#contacts')[0]});
+var contactView = new Contact({collection: contacts, el: $('.contact-list')[0]});
 // console.log(contactView);
 
 
-$('#submit-btn').on ('click', function(){
+$('#submit-btn').on ('click', function(event){
   event.preventDefault();
   var name = $('#first').val() + $('#last').val();
   var email = $('#email').val();
@@ -34,13 +34,13 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 
 var Contact = Backbone.Model.extend({
-  
+
 });
 
 var ContactCollection = Backbone.Collection.extend({
   model: Contact,
   input: function(data){
-    this.add({data});
+    this.add(data);
     return data;
   }
 });
@@ -63,10 +63,9 @@ var _ = require('underscore');
 // var contactSource = $('#address-book').html();
 // var contactTemplate = handlebars.compile(contactSource);
 var Contact = Backbone.View.extend({
-  el: '.contact-list',
   tagName: "ul",
   className: "contact-list",
-  template: _.template($('#address-book').html()),
+  template: handlebars.compile($('#address-book').html()),
   events: {
   },
   initialize: function(){
@@ -74,14 +73,15 @@ var Contact = Backbone.View.extend({
   },
   complete: function(){
   },
-  render: function(){
-    this.$el.empty().append(this.template);
+  render: function(contact){
+    console.log('rendering');
+    this.$el.empty().append(this.template(contact.toJSON()));
     return this;
   }
 });
 
-var contact = new Contact();
-contact.render();
+//var contact = new Contact();
+//contact.render();
 
 module.exports = Contact;
 

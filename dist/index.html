@@ -46,7 +46,9 @@
 
     <script id="address-book" type="text/x-handlebars-template">
       <ul class="address-book-list">
-        <li>hello</li>
+        {{#each}}
+          <li>{{name}}</li>
+        {{/each}}
       </ul>
     </script>
 

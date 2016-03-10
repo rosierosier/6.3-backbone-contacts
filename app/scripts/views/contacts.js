@@ -26,7 +26,4 @@ var Contact = Backbone.View.extend({
   }
 });
 
-//var contact = new Contact();
-//contact.render();
-
 module.exports = Contact;

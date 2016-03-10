@@ -80,9 +80,6 @@ var Contact = Backbone.View.extend({
   }
 });
 
-//var contact = new Contact();
-//contact.render();
-
 module.exports = Contact;
 
 },{"../models/contacts":2,"backbone":4,"handlebars":40,"jquery":5,"underscore":8}],4:[function(require,module,exports){
